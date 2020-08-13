@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 </head>
 <body>
-<form  action="upload.php" method="post" enctype="multipart/form-data">
+<form  action="upload_1.php" method="post" enctype="multipart/form-data">
 <input type="file" name="up">
 <input type="file" name="images[]">  
 <!-- 提交文件，信息存在数组中 -->
