@@ -11,7 +11,7 @@ class FileHandle implements SessionHandlerInterface
     public function close(){
         return true;
     }
-    public function destroy($session_id)
+    public function destroy($session_id) 
     {   
         if (is_file($this->save_path. '/' .$session_id)) {
         @unlink($this->save_path.'/'.$session_id);
