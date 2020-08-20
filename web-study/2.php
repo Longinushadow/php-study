@@ -9,7 +9,7 @@ imagefill($image,0,0,$white);
 // imagerectangle($image,300,300,400,400,$green);
 // imagefilledrectangle($image,320,320,380,380,$blue);
 // imageellipse($image,100,100,100,100,$blue);
-// imagefilledellipse($image,250,250,100,100,$blue);
+ imagefilledellipse($image,250,250,100,100,$blue);
 // imagesetthickness($image,10);
 // imagesetstyle($image,[$red,$green,$blue]);
 // imageline($image,30,30,270,270,IMG_COLOR_STYLED);
@@ -17,5 +17,8 @@ for ($i=0; $i < 1000; $i++) {
     imagesetpixel($image,mt_rand(0,500),mt_rand(0,500),$red);
 
 }
-
+for ($i=0;  $i <10 ; $i++) { 
+    imageline($image,mt_rand(0,500),mt_rand(0,500),mt_rand(0,500),mt_rand(0,500),$blue);
+}
+imagepolygon($image,array(0,0,100,200,200,100),3,$red);
 imagepng($image);
