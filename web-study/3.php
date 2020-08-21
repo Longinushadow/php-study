@@ -10,7 +10,7 @@ $font=realpath('Alibaba-PuHuiTi-Bold.ttf');
 $text='稻草人';
 for ($i=0; $i <mb_strlen($text); $i++) { 
     imagettftext(
-        $image,20,mt_rand(0,30),25*$i+50,50,$red,$font,mb_substr
+        $image,20,mt_rand(0,30),35*$i+50,50,$red,$font,mb_substr
         ($text,$i,1,'utf-8'));
 
 }
