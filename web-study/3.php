@@ -7,13 +7,18 @@ $blue=imagecolorallocate($image,0,0,255);
 $white=imagecolorallocate($image,255,255,255);
 imagefill($image,0,0,$white);
 $font=realpath('Alibaba-PuHuiTi-Bold.ttf');
-$text='稻草人';
-for ($i=0; $i <mb_strlen($text); $i++) { 
-    imagettftext(
-        $image,20,mt_rand(0,30),35*$i+50,50,$red,$font,mb_substr
-        ($text,$i,1,'utf-8'));
+$text='QiBenYu';
+// for ($i=0; $i <mb_strlen($text); $i++) { 
+//     imagettftext(
+//         $image,20,mt_rand(0,30),35*$i+50,50,$red,$font,mb_substr
+//         ($text,$i,1,'utf-8'));
 
-}
+// }
+$size=20;
+$box=imagettfbbox($size,0,$font,$text);
+$width=$box[2]-$box[0];
+$height=$box[1]-$box[7];
+imagettftext($image,$size,0,0,$height,$blue,$font,$text);
 imagepng($image);
-imagedestroy($image);
+// imagedestroy($image);
 ?>
