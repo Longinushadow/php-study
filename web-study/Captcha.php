@@ -21,7 +21,7 @@ class Captcha
         $this->line();
         $this->pix();
         $this->show();
-        return $this->code;
+        return strtoupper($this->code);
     }
     protected function text()
     {   
