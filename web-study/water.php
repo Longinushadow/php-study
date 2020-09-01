@@ -1,14 +1,62 @@
 <?php
 class Water
-{
-    public function make(string $image,string $filename=null)
+{   
+    protected $water;
+    public function __construct(string $water)
+    {
+        $this->water=$water;
+    }
+    public function make(string $image,string $filename=null,$pos=1)
     {   
         $this->checkImage($image);
         $res= $this->resource($image);
         // $info=getimagesize($image);
         // print_r($info);
+        $water = $this->resource($this->water);
+        $position=$this->position($res,$water,$pos);
+        imagecopy($res,$water,$position['x'],$position['y'],0,0,imagesx($water),imagesy($water));
+        header('content-type:image/jpeg');
+        // return $this->showAction($image)($res);
         return $this->showAction($image)($res,$filename??$image);
         // var_dump($res);
+    }
+    protected function position($res,$water,$pos){
+         $position=['x'=>20,'y'=>20];
+         switch ($pos) {
+             case '1':
+                 break;
+             case '2':
+                 $position['x']=(imagesx($res)-imagesx($water))/2;
+                 break;
+             case '3':
+                 $position['x']=(imagesx($res)-imagesx($water));
+                 break;
+             case '4':
+                 $position['y']=(imagesy($res)-imagesy($water))/2;
+                 break;
+             case '5':
+                 $position['x']=(imagesx($res)-imagesx($water))/2;
+                 $position['y']=(imagesy($res)-imagesy($water))/2;
+                 break;
+             case '6':
+                 $position['x']=(imagesx($res)-imagesx($water));
+                 $position['y']=(imagesy($res)-imagesy($water))/2;
+                 break;
+             case '7':
+                 $position['y']=(imagesy($res)-imagesy($water));
+                 break;
+             case '8':
+                 $position['x']=(imagesx($res)-imagesx($water))/2;
+                 $position['y']=(imagesy($res)-imagesy($water));
+                 break;
+             case '8':
+                 $position['x']=(imagesx($res)-imagesx($water));
+                 $position['y']=(imagesy($res)-imagesy($water));
+                 break;
+             default:
+                 break;
+         }
+         return $position;
     }
     protected function checkImage(string $image)
     {
