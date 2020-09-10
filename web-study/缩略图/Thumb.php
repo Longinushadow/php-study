@@ -19,7 +19,7 @@ class Thumb{
     }
     protected function checkImage(string $image){
         if (!is_file($image) || getimagesize($image)===false) {
-            throw new Exception("file is not exists or it is not iamge"); 
+            throw new Exception("file is not exists or it is not image"); 
         }
     }
     protected function resource(string $image){
