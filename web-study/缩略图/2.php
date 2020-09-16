@@ -2,7 +2,7 @@
 include 'Thumb.php';
 $thumb=new Thumb;
 try{
-$thumb->make('picture2.jpg',400,500);
+$thumb->make('picture.jpg','1.jpg',300,500,3);
 }catch (Exception $e){
     echo $e->getMessage();
 }
