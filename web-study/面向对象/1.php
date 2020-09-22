@@ -1,14 +1,14 @@
 <?php
 class User{
     protected $name;
-    protected static $classname='十四';
+    protected static $className='十四';
     public function setName(string $name)
     {
      $this->name=$name;
     }
     public function say()
     {
-      return self::$classname.'的'.$this->getName().' :ni hao ';
+      return self::$className.'的'.$this->getName().' :ni hao ';
     }
     public function getName()
     {
