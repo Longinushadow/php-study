@@ -14,6 +14,9 @@ class User{
     {
         return $this->name;
     }
+    public static function getClassName(){
+      return self::$className;
+    }
 }
 $obj= new User;
 echo $obj->setName('123');
