@@ -4,15 +4,13 @@ abstract class Notify{
     protected $credit=10;
     protected $color='red';
     abstract public function content();
-    //添加final关键字，不允许子类重写
-    public final function message(){
+    public function message(){
         return '<span style="color:'.$this->color.'">123456 '.$this->content().$this->credit().'</span>';
     }
     public function credit(){
         return  $this->credit;
     }
 }
-//extends 继承父类
 class User extends Notify{
     public function register(){
         return $this->message();
@@ -20,13 +18,17 @@ class User extends Notify{
     public function credit(){
         return 5;
     }
+    public function message()
+    {
+        //parent 使用父类message()
+        return parent::message();
+    }
     public function content()
     {
         return 'user_class';
     }
 }
 class Comment extends Notify{
-    protected $credit =20;
     public function send(){
         return $this->message();
     }
