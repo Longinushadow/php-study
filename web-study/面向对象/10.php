@@ -8,6 +8,7 @@ abstract class Users{
 }
 class User extends Users{
     protected $field=[];
+    protected $deny=['name'];
     public function getAll(){
         //调用setUser方法，获取data数据，由data()方法，传给field[];
         $this->setUser();
@@ -42,6 +43,18 @@ class User extends Users{
         //若无，抛出异常。
         throw  new Exception('参数错误');
         }
+    }
+    public function __unset($name)
+    {
+        if (!isset($this->field[$name])|| in_array($name,$this->deny)) {
+            # code...
+            throw new Exception('属性不存在或者禁止操作');
+        }
+        $this->field[$name]='';
+    }
+    public function __isset($name)
+    {
+        return isset($this->field[$name]);
     }
 }
 try {
