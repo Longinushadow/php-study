@@ -56,13 +56,26 @@ class User extends Users{
     {
         return isset($this->field[$name]);
     }
+    public function __call($name, $arguments)
+    {
+        $action = 'getAttribute'.$name;
+        if(method_exists($this,$action)){
+            return call_user_func_array([$this,$action],$arguments);
+        }
+    }
+
+}
+class Model extends User{
+    protected function getAttributeMobile(int $len=7){
+            return substr($this->field['mobile'],0,$len).'***';
+    }
 }
 try {
-    $user= new User;
+    $user= new Model;
     $user->getAll();//获取数据
     // print_r($user->getAll());
     // $user->name='123445';
-    echo $user->name;
+    echo $user->mobile();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
