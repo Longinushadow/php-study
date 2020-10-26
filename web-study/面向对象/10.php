@@ -18,7 +18,7 @@ class User extends Users{
     {
         $this->field=$data;
     } 
-    protected function mobile(){
+    protected function setMobile(){
         return  substr($this->field['mobile'],0,8).'***';
     }
     public function __get($name)
@@ -63,6 +63,19 @@ class User extends Users{
             return call_user_func_array([$this,$action],$arguments);
         }
     }
+    public static function __callStatic($name, $arguments)
+    {
+        switch ($name) {
+            case 'get':
+                return call_user_func_array([new static(),'getAll'],$arguments);
+                break;
+        default:
+                $obj=new static();
+                $obj->getAll();
+                return call_user_func([$obj,'__call'],$name,$arguments);
+                break;
+        }
+    }
 
 }
 class Model extends User{
@@ -70,12 +83,16 @@ class Model extends User{
             return substr($this->field['mobile'],0,$len).'***';
     }
 }
+
 try {
-    $user= new Model;
-    $user->getAll();//获取数据
+    print_r(User::get());
+    echo '<hr/>';
+    echo '123'.User::mobile();
+    // $user= new Model;
+    // $user->getAll();//获取数据
     // print_r($user->getAll());
     // $user->name='123445';
-    echo $user->mobile();
+    // echo $user->mobile();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
