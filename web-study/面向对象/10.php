@@ -69,11 +69,11 @@ class User extends Users{
             case 'get':
                 return call_user_func_array([new static(),'getAll'],$arguments);
                 break;
-        default:
+            default:
                 $obj=new static();
                 $obj->getAll();
                 return call_user_func([$obj,'__call'],$name,$arguments);
-                break;
+            
         }
     }
 
@@ -86,11 +86,11 @@ class Model extends User{
 
 try {
     print_r(User::get());
-    echo '<hr/>';
-    echo '123'.User::mobile();
+    echo '<hr/>'.'123';
+    echo Model::mobile();//调用Model下函数，user中没有getAttributeMobile方法.
     // $user= new Model;
     // $user->getAll();//获取数据
-    // print_r($user->getAll());
+    // // print_r($user->getAll());
     // $user->name='123445';
     // echo $user->mobile();
 } catch (Exception $e) {
