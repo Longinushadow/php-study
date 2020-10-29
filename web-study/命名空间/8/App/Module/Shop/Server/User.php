@@ -2,7 +2,7 @@
 namespace App\Module\Shop\Server;
 class User{
     public static function make(){
-        return __METHOD__;
+        echo __METHOD__;
     }
 }
 ?>
