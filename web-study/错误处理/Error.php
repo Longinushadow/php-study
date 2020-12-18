@@ -18,7 +18,7 @@ class Error{
             if($this->debug){
                 include 'views/notice.php';
             }
-                break;
+            break;
             default:
             if($this->debug){
             include 'views/error.php';
