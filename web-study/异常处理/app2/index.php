@@ -1,8 +1,5 @@
 <?php
 include 'bootstrap.php';
 
-try{
-    throw new Exception('test');
-}catch(Exception $e){
-    echo $e->getMessage();
-}
+throw new \App2\Exceptions\ValidateException('test');
+
