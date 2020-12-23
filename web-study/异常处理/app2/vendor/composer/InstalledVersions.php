@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '68cfcce8ad24a9358efea00f77d40a7a82ec1edf',
+    'reference' => 'cf12b2e4a0c6886807a11203432ed0a3fdb8974d',
     'name' => 'qiby/app2',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '68cfcce8ad24a9358efea00f77d40a7a82ec1edf',
+      'reference' => 'cf12b2e4a0c6886807a11203432ed0a3fdb8974d',
     ),
   ),
 );
