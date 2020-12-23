@@ -1,8 +1,10 @@
 <?php
 namespace App2\Exceptions;
+
 use Exception;
+
 class ValidateException extends Exception{
-    public function render($e){
+    public function render(){
         echo __METHOD__;
     }
 }
