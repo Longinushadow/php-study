@@ -1,3 +1,8 @@
 <?php
 include 'bootstrap.php';
-throw new Exception('test');
+
+try{
+    throw new Exception('test');
+}catch(Exception $e){
+    echo $e->getMessage();
+}

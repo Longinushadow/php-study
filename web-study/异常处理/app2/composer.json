@@ -1,0 +1,19 @@
+{
+    "name": "qiby/app2",
+    "authors": [
+        {
+            "name": "Longinushadow",
+            "email": "43020577+Longinushadow@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "bootstrap.php"
+        ],
+        "psr-4": {
+            "App\\":"App"
+            
+        }
+    },
+    "require": {}
+}

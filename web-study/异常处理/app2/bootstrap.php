@@ -1,5 +1,5 @@
 <?php
-// include "vendor/autoload.php";
+include "vendor/autoload.php";
 class Boot{
     public function init(){
         set_exception_handler([$this,'exception']);
