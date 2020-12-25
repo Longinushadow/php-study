@@ -2,10 +2,11 @@
 namespace App2\Exceptions;
 
 use Exception;
+use App2\Servers\View;
 
 class ViewException extends Exception{
     public function render(){
-        echo __METHOD__;
+        View::make('error',['message'=>$this->getMessage()]);
     }
 }
 ?>
