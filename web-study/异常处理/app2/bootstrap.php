@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'vendor/autoload.php';
 // include 'Exceptions/ValidateException.php';
 class Boot{
