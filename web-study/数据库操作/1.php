@@ -19,7 +19,8 @@ try {
     // echo $pdo->lastInsertId();
     //更新 echo $pdo->exec("UPDATE study_test set sex='女' where id>1");
     //查询 
-    $pdo->setAttribute(PDO::ATTR_CASE,PDO::CASE_UPPER);
+    // $pdo->setAttribute(PDO::ATTR_CASE,PDO::CASE_UPPER);
+    // $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     $query=$pdo->query("select * from study_test");
     $rows=$query->fetchAll();
     print_r($rows);
