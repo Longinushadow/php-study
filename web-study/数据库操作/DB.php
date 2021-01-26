@@ -23,7 +23,7 @@ class DB{
         return $sth->fetchAll();
     }
     //插入/更新/删除
-    public function query(string $sql,array $vars){
+    public function query(string $sql,array $vars=[]){
         $sth=$this->link->prepare($sql);
         return $sth->execute($vars);
     }
@@ -66,8 +66,31 @@ class DB{
         return $this->query_prepare($sql,array_values($vars));
         // print_r($sql);
         // print_r(array_values($vars));
-        // die($sql);
-        
+        // die($sql);  
+    }
+    public function update(array $vars){
+        $fields='`'. implode('`=?,`',array_keys($vars)).'`=?';
+        //update study_test set  sex=nan where id=4
+        if (empty($this->options['where'])) {
+            echo 'failed';
+        }
+        else{
+            $sql="UPDATE {$this->options['table']} SET $fields {$this->options['where']}";
+            return $this->query($sql,array_values($vars));
+            // print_r($sql); 
+        }
+    }
+    public function delete(){
+        // $fields='`'. implode('`=?,`',array_keys($vars)).'`=?';
+        //delete study_test  where id=4
+        if (empty($this->options['where'])) {
+            echo 'failed';
+        }
+        else{
+            $sql="delete from {$this->options['table']}  {$this->options['where']}";
+            return $this->query($sql);
+            // print_r($sql); 
+        }
     }
 }
 

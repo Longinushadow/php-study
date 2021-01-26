@@ -16,7 +16,8 @@ try{
     // print_r($rows);
     // $rows=$new->table('study_test')->field('id','name','title')->order(' id')->limit(' 1')->get();
     // print_r($rows);
-    $rows=$new->table('study_test')->insert(['title'=>"第九个",'name'=>"jiujiu",'sex'=>"女"]);
+    // $rows=$new->table('study_test')->where(' id=2')->update(['title'=>"第九个",'name'=>"JiuJiu",'sex'=>"女"]);
+    $rows=$new->table('study_test')->where(' id=10')->delete();
     print_r($rows);
 
 }catch(Exception $e){
